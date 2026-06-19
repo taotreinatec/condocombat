@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CondoCombat — A Crise DevOps</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme" />
+<style>
+:root {
+--cc-rose: #e11d48;
+--cc-gold: #f59e0b;
+--cc-slate: #334155;
+--cc-teal: #14b8a6;
+--cc-purple: #8b5cf6;
+}
+.reveal {
+font-family: "Inter", system-ui, -apple-system, sans-serif;
+}
+.reveal .slides section {
+padding: 0.5em;
+}
+.reveal .slide-card {
+background: rgba(255,255,255,0.95);
+border: 2px solid rgba(0,0,0,0.06);
+border-radius: 20px;
+padding: 1.2em 1.8em;
+max-width: 85%;
+margin: 0 auto;
+box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+.reveal .meme-tag {
+font-size: 0.4em;
+color: #94a3b8;
+margin-bottom: 0.5em;
+font-style: italic;
+}
+.reveal h1 { font-size: 2.8em; font-weight: 800; text-transform: none; }
+.reveal h2 { font-size: 1.6em; font-weight: 700; text-transform: none; color: var(--cc-rose); margin-bottom: 0.3em; }
+.reveal h3 { font-size: 1.2em; font-weight: 600; color: var(--cc-gold); text-transform: none; }
+.reveal p, .reveal li { font-size: 0.6em; }
+.reveal .subtitle { font-size: 0.85em; color: #64748b; margin-top: 0.3em; }
+.reveal .highlight { color: var(--cc-rose); font-weight: 700; }
+.reveal .highlight-gold { color: var(--cc-gold); font-weight: 700; }
+.reveal .highlight-teal { color: var(--cc-teal); font-weight: 700; }
+.reveal .highlight-purple { color: var(--cc-purple); font-weight: 700; }
+.reveal .card-row {
+display: flex; justify-content: center; gap: 1em; margin: 0.8em 0; flex-wrap: wrap;
+}
+.reveal .card-item {
+background: rgba(0,0,0,0.02);
+border: 1px solid rgba(0,0,0,0.08);
+border-radius: 14px;
+padding: 0.8em 1.2em;
+text-align: center;
+min-width: 130px;
+transition: transform 0.15s;
+}
+.reveal .card-item:hover { transform: scale(1.03); }
+.reveal .card-item.rose-border { border-color: var(--cc-rose); border-width: 2px; }
+.reveal .card-item.teal-border { border-color: var(--cc-teal); border-width: 2px; }
+.reveal .card-item.gold-border { border-color: var(--cc-gold); border-width: 2px; }
+.reveal .card-item.purple-border { border-color: var(--cc-purple); border-width: 2px; }
+.reveal .card-item .label { font-size: 0.5em; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; }
+.reveal .card-item .value { font-size: 0.7em; font-weight: 700; margin: 0.2em 0; }
+.reveal .card-item .sub { font-size: 0.45em; color: #64748b; }
+.reveal .symptom-list {
+text-align: left; max-width: 82%; margin: 0 auto; font-size: 0.55em;
+}
+.reveal .symptom-list li { margin-bottom: 0.4em; }
+.reveal .big-num {
+font-size: 3em; font-weight: 800;
+}
+.reveal .big-num.rose { color: var(--cc-rose); }
+.reveal .big-num.teal { color: var(--cc-teal); }
+.reveal .arrow-big { font-size: 1.8em; display: flex; align-items: center; color: #94a3b8; }
+.reveal .divider-meme {
+border: none; border-top: 2px dashed rgba(0,0,0,0.08); margin: 0.8em auto; max-width: 50%;
+}
+.reveal .footer-meme {
+font-size: 0.35em; color: #94a3b8; margin-top: 1em; font-style: italic;
+}
+.reveal .cta-box {
+background: linear-gradient(135deg, var(--cc-rose), #be123c);
+color: white; border-radius: 16px; padding: 1em 2em; display: inline-block; margin-top: 0.8em;
+box-shadow: 0 4px 16px rgba(225,29,72,0.3);
+}
+.reveal .cta-box p { font-size: 1.1em; font-weight: 700; color: white; margin: 0; }
+.reveal .cta-box small { font-size: 0.5em; color: rgba(255,255,255,0.8); }
+.reveal .disclaimer {
+font-size: 0.35em; color: #94a3b8; font-style: italic; max-width: 75%; margin: 0.6em auto;
+}
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- 1 — TITLE -->
+<section>
+<div class="slide-card">
+<div class="meme-tag">🎬 CENA 1 — O PROTAGONISTA</div>
+<h1>🏢⚔️ CondoCombat</h1>
+<p class="subtitle">
+O ERP que <span class="highlight">gerencia fofocas, rixas</span> e <span class="highlight-teal">tretas de condomínio</span>
+</p>
+<div style="margin-top: 0.8em; font-size: 0.5em; color: #64748b;">
+"Porque sua fofoca merece um acompanhamento preciso"™
+</div>
+<div class="divider-meme"></div>
+<div class="card-row">
+<div class="card-item"><div class="label">🏗️ Landing</div><div class="value">Astro</div></div>
+<div class="card-item"><div class="label">🖥️ App</div><div class="value">Next.js</div></div>
+<div class="card-item"><div class="label">⚙️ API</div><div class="value">FastAPI</div></div>
+</div>
+<div class="footer-meme">🚨 Atenção: este produto contém doses satíricas de realidade condominial</div>
+</div>
+</section>
+
+<!-- 2 — O NEGÓCIO -->
+<section>
+<div class="slide-card">
+<div class="meme-tag">💼 CENA 2 — MAS AFINAL, O QUE ELA FAZ?</div>
+<h2>O Negócio</h2>
+<p class="subtitle" style="max-width: 90%; margin: 0 auto;">
+Um <span class="highlight-gold">ERP completo</span> que transforma paneladas das 22h em dado estruturado
+</p>
+<div class="card-row">
+<div class="card-item"><div class="label">📝</div><div class="value">Ocorrências</div><div class="sub">Barulho, briga, vazamento</div></div>
+<div class="card-item"><div class="label">⚔️</div><div class="value">Rivalidades</div><div class="sub">Leve → Moderado → Bélico</div></div>
+<div class="card-item"><div class="label">📊</div><div class="value">Rankings</div><div class="sub">Apartamento do mês 🏆</div></div>
+<div class="card-item"><div class="label">📡</div><div class="value">Tempo Real</div><div class="sub">WebSocket ao vivo</div></div>
+</div>
+<div class="footer-meme">🎯 Público-alvo: síndicos, fofoqueiros e administradoras desesperadas</div>
+</div>
+</section>
+
+<!-- 3 — O MERCADO -->
+<section>
+<div class="slide-card">
+<div class="meme-tag">📊 CENA 3 — O PLOT TWIST</div>
+<h2> Eis que surge um concorrente...</h2>
+<div class="card-row" style="gap: 1.5em;">
+<div class="card-item rose-border" style="min-width: 170px;">
+<div class="label" style="font-size: 0.45em;">Nós</div>
+<div class="value" style="font-size: 0.85em; color: var(--cc-rose);">CondoCombat</div>
+<div class="big-num rose">35%</div>
+<div class="sub" style="color: #ef4444;">⬇️ market share</div>
+</div>
+<div class="arrow-big">🆚</div>
+<div class="card-item teal-border" style="min-width: 170px;">
+<div class="label" style="font-size: 0.45em;">Concorrente</div>
+<div class="value" style="font-size: 0.85em; color: var(--cc-teal);">FofoCondo</div>
+<div class="big-num teal">52%</div>
+<div class="sub" style="color: var(--cc-teal);">⬆️ market share</div>
+</div>
+</div>
+<p style="font-size: 0.55em; color: #64748b; margin-top: 0.3em;">
+Eles estão nos comendo vivos. Mas <span class="highlight">por quê?</span>
+</p>
+<div class="footer-meme">😬 Spoiler: não é o produto. É como entregamos ele.</div>
+</div>
+</section>
+
+<!-- 4 — O DIAGNÓSTICO -->
+<section>
+<div class="slide-card">
+<div class="meme-tag">🔍 CENA 4 — O DIAGNÓSTICO (DÓI, MAS PRECISA)</div>
+<h2>O Diagnóstico</h2>
+<p style="max-width: 90%; margin: 0 auto;">
+O problema <span class="highlight">não</span> é o produto.<br/>
+O problema é <span class="highlight">como entregamos</span> o produto.
+</p>
+<div class="card-row" style="gap: 1.5em; margin-top: 0.6em;">
+<div class="card-item rose-border" style="min-width: 180px;">
+<div class="label">CondoCombat</div>
+<div class="value" style="color: var(--cc-rose);">❌ Sem DevOps</div>
+<div class="sub" style="color: #ef4444;">Deploy manual · Zero automação</div>
+</div>
+<div class="arrow-big">😰</div>
+<div class="card-item teal-border" style="min-width: 180px;">
+<div class="label">FofoCondo</div>
+<div class="value" style="color: var(--cc-teal);">✅ DevOps mais maduro</div>
+<div class="sub" style="color: var(--cc-teal);">Entregam mais rápido e com mais qualidade</div>
+</div>
+</div>
+<p style="font-size: 0.55em; color: #64748b; margin-top: 0.3em;">
+Enquanto eles entregam em <span class="highlight-teal">horas</span>, nós entregamos em <span class="highlight">dias</span> — quando não quebra.
+</p>
+<div class="footer-meme">🐢 "Funciona na minha máquina" — o hino não oficial da empresa</div>
+</div>
+</section>
+
+<!-- 5 — SINTOMAS -->
+<section>
+<div class="slide-card">
+<div class="meme-tag">🤕 CENA 5 — OS SINTOMAS (OU: COMO SABER QUE VOCÊ PRECISA DE DEVOPS)</div>
+<h2>Os Sintomas</h2>
+<p style="font-size: 0.5em; color: #94a3b8; margin-bottom: 0.3em;">
+7 sinais clássicos de que o DevOps brilha pela ausência
+</p>
+<ul class="symptom-list">
+<li>🐢 <strong>Deploy manual e propenso a erros</strong> — 3 apps, 3 processos, deploy na mão = erro na certa</li>
+<li>🧪 <strong>Sem testes automatizados</strong> — "Funciona na minha máquina" é o mantra (e o pesadelo)</li>
+<li>🏗️ <strong>Infraestrutura frágil</strong> — Cada dev monta o ambiente do seu jeito, Deus ajuda quem configura certo</li>
+<li>🔐 <strong>Configurações vazadas, ambientes divergentes</strong> — Staging vive numa realidade paralela</li>
+<li>⏱️ <strong>Lead time de dias</strong> — Enquanto a FofoCondo entrega em horas, a gente reza pra compilar</li>
+<li>🔙 <strong>Rollback? Isso existe?</strong> — Reverter uma alteração é um ato de fé</li>
+<li>😰 <strong>Estresse a cada deploy</strong> — Sexta 17h = hora de acender vela pra São Deploy</li>
+</ul>
+<div class="footer-meme">📋 Diagnóstico: DevOps ausente. Prognóstico: reversível com ajuda profissional.</div>
+</div>
+</section>
+
+<!-- 6 — CUSTO -->
+<section>
+<div class="slide-card">
+<div class="meme-tag">💰 CENA 6 — ENQUANTO ISSO, NA FOFOCONDO...</div>
+<h2>O Custo da Demora</h2>
+<div class="card-row" style="gap: 1em;">
+<div class="card-item rose-border" style="min-width: 150px;">
+<div class="label">🚫 CondoCombat</div>
+<div class="value" style="font-size: 0.6em;">Deploy 2x/mês</div>
+<div class="sub" style="color: #ef4444;">manual e arriscado</div>
+</div>
+<div class="card-item" style="min-width: 150px;">
+<div class="label">🐛 Bug em produção</div>
+<div class="value" style="font-size: 0.6em;">3 dias pra corrigir</div>
+<div class="sub" style="color: #ef4444;">quando descobre</div>
+</div>
+<div class="card-item" style="min-width: 150px;">
+<div class="label">📉 Churn</div>
+<div class="value" style="font-size: 0.6em; color: #ef4444;">+40%</div>
+<div class="sub">clientes indo pra FofoCondo</div>
+</div>
+</div>
+<hr class="divider-meme" />
+<p style="font-size: 0.55em;">
+Enquanto isso, a <span class="highlight-teal">FofoCondo entrega toda semana</span> com segurança.<br/>
+<span class="highlight">E a gente? A gente apanha.</span>
+</p>
+<div class="footer-meme">📉 -17% de market share em um trimestre dói em qualquer CNPJ</div>
+</div>
+</section>
+
+<!-- 7 — GRITO DE SOCORRO -->
+<section>
+<div class="slide-card">
+<div class="meme-tag">🆘 CENA 7 — O MOMENTO "BATEU O DESESPERO"</div>
+<h2>O Grito de Socorro</h2>
+<p style="max-width: 90%; margin: 0 auto;">
+A diretoria finalmente percebeu: <span class="highlight">não dá mais</span> para competir<br/>
+sem engenharia de entrega de qualidade.
+</p>
+<div class="card-row" style="margin-top: 0.5em;">
+<div class="card-item" style="min-width: 160px;">
+<div class="label">📉 Market share perdido</div>
+<div class="big-num rose" style="font-size: 2.5em;">-17%</div>
+<div class="sub" style="color: #ef4444;">só no último trimestre</div>
+</div>
+<div class="card-item" style="min-width: 160px;">
+<div class="label">😤 Clientes perdidos</div>
+<div class="big-num rose" style="font-size: 2.5em;">+40%</div>
+<div class="sub" style="color: #ef4444;">churn rate</div>
+</div>
+</div>
+<hr class="divider-meme" />
+<p><span class="highlight-gold">Algo precisava mudar.</span></p>
+<div class="footer-meme">📞 "Alô? É da Devopeiros? A gente precisa de ajuda. Meio desesperada."</div>
+</div>
+</section>
+
+<!-- 8 — DEVOPS -->
+<section>
+<div class="slide-card">
+<div class="meme-tag">🦸 CENA 8 — ENTRAM OS HERÓIS (SEM CAPA, MAS COM TERMINAL)</div>
+<h2>A Salvação</h2>
+<p style="max-width: 90%; margin: 0 auto;">
+Foi quando a <span class="highlight-purple">Devopeiros Consultoria</span> foi chamada.
+</p>
+<p style="font-size: 0.55em; color: #64748b; margin-top: 0.3em;">
+Especialistas em transformação DevOps para empresas que<br/>
+<span class="highlight">não podem mais perder tempo</span> com deploy manual e planilha de senhas.
+</p>
+<div class="card-row" style="margin-top: 0.5em;">
+<div class="card-item purpura-border" style="min-width: 200px; border-color: var(--cc-purple); border-width: 2px;">
+<div class="value" style="font-size: 0.8em; color: var(--cc-purple);">👷 Devopeiros</div>
+<div class="sub" style="color: #94a3b8;">Consultoria DevOps</div>
+</div>
+</div>
+<p style="font-size: 0.55em; color: #64748b; margin-top: 0.5em;">
+Contratados pra <span class="highlight-gold">transformar</span> a forma como a CondoCombat entrega software.
+</p>
+<div class="footer-meme">🎵 Música tema: "Ain't No Pipeline High Enough" — versão devops</div>
+</div>
+</section>
+
+<!-- 9 — O TRABALHO VAI COMEÇAR -->
+<section>
+<div class="slide-card">
+<div class="meme-tag">🔧 CENA 9 — O QUE A DEVOPS VAI FAZER? (MISTÉRIO 🤫)</div>
+<h2>O Trabalho Vai Começar</h2>
+<p style="max-width: 90%; margin: 0 auto;">
+A Devopeiros irá implementar as melhores práticas de<br/>
+<span class="highlight">DevOps</span> na CondoCombat.
+</p>
+<p style="font-size: 0.55em; color: #64748b; margin-top: 0.5em;">
+Não vamos entregar o que estamos fazendo —<br/>
+<span class="highlight-gold">vamos mostrar os resultados.</span>
+</p>
+<div class="card-row" style="margin-top: 0.5em;">
+<div class="card-item" style="min-width: 140px;">
+<div style="font-size: 0.5em; color: #94a3b8;">Saímos de</div>
+<div style="font-size: 0.65em;">😰 Deploy = rezar</div>
+</div>
+<div class="arrow-big">➡️</div>
+<div class="card-item" style="min-width: 140px;">
+<div style="font-size: 0.5em; color: #94a3b8;">Pra chegar em</div>
+<div style="font-size: 0.65em;">🚀 Deploy = confiança</div>
+</div>
+</div>
+<p style="font-size: 0.5em; color: #94a3b8; margin-top: 0.5em;">
+Acompanhe essa transformação. O melhor está por vir.
+</p>
+<div class="footer-meme">📺 Próximo episódio: uma nova forma de entregar software</div>
+</div>
+</section>
+
+<!-- 10 — CALL TO ACTION -->
+<section>
+<div class="slide-card">
+<div class="meme-tag">🎬 CENA FINAL — O GRANDE FINALE</div>
+<h1>🏢⚔️</h1>
+<h2>CondoCombat + Devopeiros</h2>
+<p class="subtitle">
+Do deploy manual ao <span class="highlight">deploy contínuo</span>.<br/>
+Do estresse à <span class="highlight-teal">confiança</span>.
+</p>
+<div class="cta-box">
+<p>🚀 A transformação já começou</p>
+<small>Você está pronto para entregar software com qualidade?</small>
+</div>
+<p style="margin-top: 0.8em; font-size: 0.55em; color: #64748b;">
+<b>Devopeiros Consultoria</b> — DevOps que funciona.<br/>
+<a href="#" style="color: var(--cc-purple);">devopeiros.com.br</a>
+</p>
+<p class="disclaimer">
+⚠️ Esta apresentação é parte de um exercício pedagógico sobre DevOps.
+CondoCombat, FofoCondo e Devopeiros são marcas fictícias.
+Personagens e situações são uma sátira com fins educacionais.
+Respeito e boa convivência sempre em primeiro lugar. 🏡❤️
+</p>
+<div class="footer-meme">🎬 FIM — Da próxima vez, não deixe o deploy para sexta 17h.</div>
+</div>
+</section>
+
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+Reveal.initialize({
+hash: true,
+slideNumber: "c/t",
+transition: "slide",
+backgroundTransition: "fade",
+width: 1200,
+height: 700,
+margin: 0.08,
+controls: true,
+progress: true,
+center: true,
+plugins: [],
+});
+</script>
+</body>
+</html>
