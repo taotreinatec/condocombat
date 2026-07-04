@@ -487,42 +487,7 @@ python -c 'import secrets; print(secrets.token_urlsafe(32))'
 
 ---
 
-### Passo 10 — Validar Localmente Antes de Subir
-
-```bash
-# 1. Build local das imagens
-docker compose build
-
-# 2. Subir stack completa
-docker compose up -d
-
-# 3. Verificar saúde dos containers
-docker compose ps
-docker compose logs -f api
-
-# 4. Testar endpoints
-curl http://localhost:8000/health    # Backend
-curl http://localhost:3000           # Frontend
-
-# 5. Rodar testes do backend localmente
-cd backend && pytest
-
-# 6. Rodar testes do frontend localmente
-cd frontend && npm test
-
-# 7. Rodar lint do backend
-cd backend && ruff check app/
-
-# 8. Rodar lint do frontend
-cd frontend && npm run lint
-
-# 9. Parar e limpar
-docker compose down -v
-```
-
----
-
-### Passo 11 — Commit e Push
+### Passo 10 — Commit e Push
 
 ```bash
 git add .
@@ -534,7 +499,7 @@ As pipelines serão disparadas automaticamente. Acompanhe em **CI/CD → Pipelin
 
 ---
 
-### Passo 12 — Verificar Pipeline e Imagens
+### Passo 11 — Verificar Pipeline e Imagens
 
 Após a pipeline concluir:
 1. No GitLab: **CI/CD → Pipelines** → verifique se todos os stages passaram (lint → test → build)
@@ -547,6 +512,26 @@ Após a pipeline concluir:
    docker compose pull
    docker compose up -d
    ```
+
+---
+
+### Passo 12 — Validar Docker-Compose
+
+```bash
+# 1. Subir stack completa
+docker compose up -d
+
+# 2. Verificar saúde dos containers
+docker compose ps
+docker compose logs -f api
+
+# 3. Testar endpoints
+curl http://localhost:8000/health    # Backend
+curl http://localhost:3000           # Frontend
+
+# 4. Parar e limpar
+docker compose down -v
+```
 
 ---
 

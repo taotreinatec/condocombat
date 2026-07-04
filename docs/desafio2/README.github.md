@@ -493,42 +493,7 @@ jobs:
 
 ---
 
-### Passo 9 — Validar Localmente Antes de Subir
-
-```bash
-# 1. Build local das imagens
-docker compose build
-
-# 2. Subir stack completa
-docker compose up -d
-
-# 3. Verificar saúde dos containers
-docker compose ps
-docker compose logs -f api
-
-# 4. Testar endpoints
-curl http://localhost:8000/health    # Backend
-curl http://localhost:3000           # Frontend
-
-# 5. Rodar testes do backend localmente
-cd backend && pytest
-
-# 6. Rodar testes do frontend localmente
-cd frontend && npm test
-
-# 7. Rodar lint do backend
-cd backend && ruff check app/
-
-# 8. Rodar lint do frontend
-cd frontend && npm run lint
-
-# 9. Parar e limpar
-docker compose down -v
-```
-
----
-
-### Passo 10 — Commit e Push
+### Passo 9 — Commit e Push
 
 ```bash
 git add .
@@ -540,19 +505,33 @@ As pipelines serão disparadas automaticamente. Acompanhe em **Actions** no GitH
 
 ---
 
-### Passo 11 — Verificar Pipeline e Imagens
+### Passo 10 — Verificar Pipeline e Imagens
 
 Após as pipelines concluírem:
 1. No GitHub: **Actions** → verifique se todos os jobs passaram (lint → test → build-and-push)
 2. No Docker Hub: acesse seu perfil → Repositories → confirme as imagens:
    - `seu-usuario/condocombat-backend:latest`
    - `seu-usuario/condocombat-frontend:latest`
-3. Teste o docker-compose com as imagens publicadas:
-   ```bash
-   # Atualize o docker-compose.yml com seu username
-   docker compose pull
-   docker compose up -d
-   ```
+
+---
+
+### Passo 11 — Validar Docker-Compose
+
+```bash
+# 1. Subir stack completa
+docker compose up -d
+
+# 2. Verificar saúde dos containers
+docker compose ps
+docker compose logs -f api
+
+# 3. Testar endpoints
+curl http://localhost:8000/health    # Backend
+curl http://localhost:3000           # Frontend
+
+# 4. Parar e limpar
+docker compose down -v
+```
 
 ---
 
