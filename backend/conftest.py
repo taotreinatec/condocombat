@@ -8,7 +8,11 @@ os.environ.setdefault("SECRET_KEY", "test-secret-key-for-tests-32chars-min!")
 from unittest.mock import AsyncMock, MagicMock
 
 import pytest
-from sqlalchemy.ext.asyncio import AsyncSession
+import pytest_asyncio
+from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
+from sqlalchemy.pool import StaticPool
+
+from app.models import Base
 
 
 @pytest.fixture
@@ -35,3 +39,20 @@ def mock_session():
     session.close = AsyncMock()
     session.flush = AsyncMock()
     return session
+
+
+@pytest_asyncio.fixture
+async def async_session():
+    """Real async database session for integration tests (model tests)."""
+    engine = create_async_engine(
+        "sqlite+aiosqlite:///:memory:",
+        echo=False,
+        poolclass=StaticPool,
+        connect_args={"check_same_thread": False},
+    )
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+    async_session_maker = async_sessionmaker(engine, expire_on_commit=False, class_=AsyncSession)
+    async with async_session_maker() as session:
+        yield session
+    await engine.dispose()
