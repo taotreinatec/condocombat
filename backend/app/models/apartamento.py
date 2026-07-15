@@ -1,6 +1,6 @@
+from __future__ import annotations
 from sqlalchemy import Float, ForeignKey, String, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-
 from app.database import Base
 
 
@@ -23,9 +23,9 @@ class Apartamento(Base):
         ForeignKey("condominios.id"), nullable=False, index=True
     )
 
-    condominio: Mapped["Condominio"] = relationship(
+    condominio: Mapped["Condominio"] = relationship(  # noqa: F821
         "Condominio", back_populates="apartamentos"
     )
-    moradores: Mapped[list["Morador"]] = relationship(
+    moradores: Mapped[list["Morador"]] = relationship(  # noqa: F821
         "Morador", back_populates="apartamento"
     )

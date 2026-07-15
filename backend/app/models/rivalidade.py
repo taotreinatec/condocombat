@@ -1,3 +1,4 @@
+from __future__ import annotations
 from datetime import datetime, timezone
 
 from sqlalchemy import DateTime, ForeignKey, String, UniqueConstraint
@@ -40,9 +41,9 @@ class Rivalidade(Base):
         onupdate=lambda: datetime.now(timezone.utc),
     )
 
-    apartamento_a: Mapped["Apartamento"] = relationship(
+    apartamento_a: Mapped["Apartamento"] = relationship(  # noqa: F821
         "Apartamento", foreign_keys=[apartamento_a_id], backref="rivalidades_como_a"
     )
-    apartamento_b: Mapped["Apartamento"] = relationship(
+    apartamento_b: Mapped["Apartamento"] = relationship(  # noqa: F821
         "Apartamento", foreign_keys=[apartamento_b_id], backref="rivalidades_como_b"
     )

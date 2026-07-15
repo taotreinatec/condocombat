@@ -1,7 +1,6 @@
 """Unit tests for CondominioRepository — mocked AsyncSession."""
 
 import pytest
-from sqlalchemy import select
 from sqlalchemy.sql.selectable import Select
 
 from app.models.condominio import Condominio

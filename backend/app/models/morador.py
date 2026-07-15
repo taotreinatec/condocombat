@@ -1,3 +1,4 @@
+from __future__ import annotations
 from datetime import datetime, timezone
 
 from sqlalchemy import DateTime, ForeignKey, String
@@ -25,6 +26,6 @@ class Morador(Base):
         default=lambda: datetime.now(timezone.utc),
     )
 
-    apartamento: Mapped["Apartamento"] = relationship(
+    apartamento: Mapped["Apartamento"] = relationship(  # noqa: F821
         "Apartamento", back_populates="moradores"
     )

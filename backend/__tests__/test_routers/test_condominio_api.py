@@ -10,7 +10,6 @@ from httpx import ASGITransport
 from app.main import app
 from app.models.condominio import Condominio
 from app.routers.condominio import _get_service
-from app.schemas.condominio import CondominioCreate, CondominioRead, CondominioUpdate
 from app.services.condominio import CondominioJaExiste, CondominioNaoEncontrado
 
 

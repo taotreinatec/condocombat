@@ -1,0 +1,317 @@
+2026-07-15T12:14:06.9340499Z Current runner version: '2.335.1'
+2026-07-15T12:14:06.9366240Z ##[group]Runner Image Provisioner
+2026-07-15T12:14:06.9367210Z Hosted Compute Agent
+2026-07-15T12:14:06.9367849Z Version: 20260624.560
+2026-07-15T12:14:06.9368467Z Commit: 925d229a51159bc391ae97e54a2dd1fe20af789d
+2026-07-15T12:14:06.9369257Z Build Date: 2026-06-24T18:26:47Z
+2026-07-15T12:14:06.9370395Z Worker ID: {33ce01f2-cb03-4c2c-b657-44fd42d9997c}
+2026-07-15T12:14:06.9371181Z Azure Region: westus
+2026-07-15T12:14:06.9371804Z ##[endgroup]
+2026-07-15T12:14:06.9373337Z ##[group]Operating System
+2026-07-15T12:14:06.9374050Z Ubuntu
+2026-07-15T12:14:06.9374570Z 24.04.4
+2026-07-15T12:14:06.9375058Z LTS
+2026-07-15T12:14:06.9375670Z ##[endgroup]
+2026-07-15T12:14:06.9376279Z ##[group]Runner Image
+2026-07-15T12:14:06.9376917Z Image: ubuntu-24.04
+2026-07-15T12:14:06.9377509Z Version: 20260705.232.1
+2026-07-15T12:14:06.9378893Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260705.232/images/ubuntu/Ubuntu2404-Readme.md
+2026-07-15T12:14:06.9380729Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260705.232
+2026-07-15T12:14:06.9381734Z ##[endgroup]
+2026-07-15T12:14:06.9382948Z ##[group]GITHUB_TOKEN Permissions
+2026-07-15T12:14:06.9384904Z Contents: read
+2026-07-15T12:14:06.9385660Z Metadata: read
+2026-07-15T12:14:06.9386230Z Packages: read
+2026-07-15T12:14:06.9386819Z ##[endgroup]
+2026-07-15T12:14:06.9388970Z Secret source: Actions
+2026-07-15T12:14:06.9390132Z Prepare workflow directory
+2026-07-15T12:14:06.9766143Z Prepare all required actions
+2026-07-15T12:14:06.9825552Z Getting action download info
+2026-07-15T12:14:07.3484482Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-07-15T12:14:07.4310104Z Download action repository 'actions/setup-python@v4' (SHA:7f4fc3e22c37d6ff65e88745f38bd3157c663f7c)
+2026-07-15T12:14:07.6107703Z Complete job name: Lint Backend
+2026-07-15T12:14:07.6858819Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-15T12:14:07.6867401Z ##[group]Run actions/checkout@v4
+2026-07-15T12:14:07.6868153Z with:
+2026-07-15T12:14:07.6868627Z   repository: taotreinatec/condocombat
+2026-07-15T12:14:07.6872736Z   token: ***
+2026-07-15T12:14:07.6873176Z   ssh-strict: true
+2026-07-15T12:14:07.6873615Z   ssh-user: git
+2026-07-15T12:14:07.6874069Z   persist-credentials: true
+2026-07-15T12:14:07.6874550Z   clean: true
+2026-07-15T12:14:07.6874994Z   sparse-checkout-cone-mode: true
+2026-07-15T12:14:07.6875514Z   fetch-depth: 1
+2026-07-15T12:14:07.6875938Z   fetch-tags: false
+2026-07-15T12:14:07.6876372Z   show-progress: true
+2026-07-15T12:14:07.6876810Z   lfs: false
+2026-07-15T12:14:07.6877256Z   submodules: false
+2026-07-15T12:14:07.6877705Z   set-safe-directory: true
+2026-07-15T12:14:07.6878483Z ##[endgroup]
+2026-07-15T12:14:07.7868073Z Syncing repository: taotreinatec/condocombat
+2026-07-15T12:14:07.7870248Z ##[group]Getting Git version info
+2026-07-15T12:14:07.7871252Z Working directory is '/home/runner/work/condocombat/condocombat'
+2026-07-15T12:14:07.7872343Z [command]/usr/bin/git version
+2026-07-15T12:14:07.7956876Z git version 2.54.0
+2026-07-15T12:14:07.7984633Z ##[endgroup]
+2026-07-15T12:14:07.8002228Z Temporarily overriding HOME='/home/runner/work/_temp/49873685-01b3-4eda-a950-6f9d8e8d77bc' before making global git config changes
+2026-07-15T12:14:07.8004940Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-15T12:14:07.8008694Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/condocombat/condocombat
+2026-07-15T12:14:07.8063578Z Deleting the contents of '/home/runner/work/condocombat/condocombat'
+2026-07-15T12:14:07.8066106Z ##[group]Initializing the repository
+2026-07-15T12:14:07.8070735Z [command]/usr/bin/git init /home/runner/work/condocombat/condocombat
+2026-07-15T12:14:07.8180601Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-07-15T12:14:07.8182285Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-07-15T12:14:07.8183832Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-07-15T12:14:07.8185117Z hint: call:
+2026-07-15T12:14:07.8185765Z hint:
+2026-07-15T12:14:07.8186562Z hint: 	git config --global init.defaultBranch <name>
+2026-07-15T12:14:07.8187529Z hint:
+2026-07-15T12:14:07.8188427Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-07-15T12:14:07.8190230Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-07-15T12:14:07.8191449Z hint:
+2026-07-15T12:14:07.8192090Z hint: 	git branch -m <name>
+2026-07-15T12:14:07.8192821Z hint:
+2026-07-15T12:14:07.8193844Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-07-15T12:14:07.8195696Z Initialized empty Git repository in /home/runner/work/condocombat/condocombat/.git/
+2026-07-15T12:14:07.8201284Z [command]/usr/bin/git remote add origin https://github.com/taotreinatec/condocombat
+2026-07-15T12:14:07.8276704Z ##[endgroup]
+2026-07-15T12:14:07.8278040Z ##[group]Disabling automatic garbage collection
+2026-07-15T12:14:07.8280485Z [command]/usr/bin/git config --local gc.auto 0
+2026-07-15T12:14:07.8313860Z ##[endgroup]
+2026-07-15T12:14:07.8315082Z ##[group]Setting up auth
+2026-07-15T12:14:07.8324097Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-15T12:14:07.8373612Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-15T12:14:07.8753047Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-15T12:14:07.8791457Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-15T12:14:07.9024113Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-15T12:14:07.9070960Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-15T12:14:07.9321197Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-07-15T12:14:07.9362154Z ##[endgroup]
+2026-07-15T12:14:07.9362962Z ##[group]Fetching the repository
+2026-07-15T12:14:07.9374361Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +58ff2c585006df175aab6b37933da027a134fb86:refs/remotes/pull/3/merge
+2026-07-15T12:14:08.4909019Z From https://github.com/taotreinatec/condocombat
+2026-07-15T12:14:08.4910345Z  * [new ref]         58ff2c585006df175aab6b37933da027a134fb86 -> pull/3/merge
+2026-07-15T12:14:08.4947207Z ##[endgroup]
+2026-07-15T12:14:08.4948167Z ##[group]Determining the checkout info
+2026-07-15T12:14:08.4949299Z ##[endgroup]
+2026-07-15T12:14:08.4956420Z [command]/usr/bin/git sparse-checkout disable
+2026-07-15T12:14:08.5009908Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-07-15T12:14:08.5042609Z ##[group]Checking out the ref
+2026-07-15T12:14:08.5047567Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/3/merge
+2026-07-15T12:14:08.5218280Z Note: switching to 'refs/remotes/pull/3/merge'.
+2026-07-15T12:14:08.5219125Z 
+2026-07-15T12:14:08.5220049Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-07-15T12:14:08.5221664Z changes and commit them, and you can discard any commits you make in this
+2026-07-15T12:14:08.5223255Z state without impacting any branches by switching back to a branch.
+2026-07-15T12:14:08.5223848Z 
+2026-07-15T12:14:08.5224221Z If you want to create a new branch to retain commits you create, you may
+2026-07-15T12:14:08.5225342Z do so (now or later) by using -c with the switch command. Example:
+2026-07-15T12:14:08.5226015Z 
+2026-07-15T12:14:08.5226408Z   git switch -c <new-branch-name>
+2026-07-15T12:14:08.5227009Z 
+2026-07-15T12:14:08.5227356Z Or undo this operation with:
+2026-07-15T12:14:08.5227687Z 
+2026-07-15T12:14:08.5227891Z   git switch -
+2026-07-15T12:14:08.5228147Z 
+2026-07-15T12:14:08.5228568Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-07-15T12:14:08.5229129Z 
+2026-07-15T12:14:08.5230322Z HEAD is now at 58ff2c5 Merge ce2fce6d88666a96dbc9dfe84115115e76c8ad49 into 4844155a3e60839317a4505dd4be0e20d2525be5
+2026-07-15T12:14:08.5232760Z ##[endgroup]
+2026-07-15T12:14:08.5270784Z [command]/usr/bin/git log -1 --format=%H
+2026-07-15T12:14:08.5297413Z 58ff2c585006df175aab6b37933da027a134fb86
+2026-07-15T12:14:08.5585396Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-15T12:14:08.5588097Z ##[group]Run actions/setup-python@v4
+2026-07-15T12:14:08.5588631Z with:
+2026-07-15T12:14:08.5589036Z   python-version: 3.12
+2026-07-15T12:14:08.5589821Z   check-latest: false
+2026-07-15T12:14:08.5593680Z   token: ***
+2026-07-15T12:14:08.5594138Z   update-environment: true
+2026-07-15T12:14:08.5594651Z   allow-prereleases: false
+2026-07-15T12:14:08.5595134Z ##[endgroup]
+2026-07-15T12:14:08.6971117Z ##[group]Installed versions
+2026-07-15T12:14:08.7069640Z (node:2304) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-07-15T12:14:08.7072048Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-07-15T12:14:08.7073524Z Successfully set up CPython (3.12.13)
+2026-07-15T12:14:08.7075309Z ##[endgroup]
+2026-07-15T12:14:08.7362436Z ##[group]Run pip install ruff
+2026-07-15T12:14:08.7363821Z [36;1mpip install ruff[0m
+2026-07-15T12:14:08.7765880Z shell: /usr/bin/bash -e {0}
+2026-07-15T12:14:08.7766766Z env:
+2026-07-15T12:14:08.7767612Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-07-15T12:14:08.7768820Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib/pkgconfig
+2026-07-15T12:14:08.7770321Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-07-15T12:14:08.7771389Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-07-15T12:14:08.7772451Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-07-15T12:14:08.7773522Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib
+2026-07-15T12:14:08.7774508Z ##[endgroup]
+2026-07-15T12:14:12.2235499Z Collecting ruff
+2026-07-15T12:14:12.2796948Z   Downloading ruff-0.15.21-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (26 kB)
+2026-07-15T12:14:12.2907776Z Downloading ruff-0.15.21-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.5 MB)
+2026-07-15T12:14:12.3973254Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.5/11.5 MB 165.3 MB/s  0:00:00
+2026-07-15T12:14:12.4772188Z Installing collected packages: ruff
+2026-07-15T12:14:12.6064384Z Successfully installed ruff-0.15.21
+2026-07-15T12:14:12.6626267Z ##[group]Run ruff check app/
+2026-07-15T12:14:12.6626636Z [36;1mruff check app/[0m
+2026-07-15T12:14:12.6660930Z shell: /usr/bin/bash -e {0}
+2026-07-15T12:14:12.6661234Z env:
+2026-07-15T12:14:12.6661543Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-07-15T12:14:12.6662041Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib/pkgconfig
+2026-07-15T12:14:12.6662518Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-07-15T12:14:12.6662966Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-07-15T12:14:12.6663444Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+2026-07-15T12:14:12.6664146Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib
+2026-07-15T12:14:12.6664519Z ##[endgroup]
+2026-07-15T12:14:12.6810930Z F821 Undefined name `Condominio`
+2026-07-15T12:14:12.6814335Z   --> app/models/apartamento.py:26:25
+2026-07-15T12:14:12.6814882Z    |
+2026-07-15T12:14:12.6815242Z 24 |     )
+2026-07-15T12:14:12.6815708Z 25 |
+2026-07-15T12:14:12.6816213Z 26 |     condominio: Mapped["Condominio"] = relationship(
+2026-07-15T12:14:12.6816861Z    |                         ^^^^^^^^^^
+2026-07-15T12:14:12.6817365Z 27 |         "Condominio", back_populates="apartamentos"
+2026-07-15T12:14:12.6817744Z 28 |     )
+2026-07-15T12:14:12.6817981Z    |
+2026-07-15T12:14:12.6818220Z 
+2026-07-15T12:14:12.6818448Z F821 Undefined name `Morador`
+2026-07-15T12:14:12.6818998Z   --> app/models/apartamento.py:29:29
+2026-07-15T12:14:12.6819689Z    |
+2026-07-15T12:14:12.6820219Z 27 |         "Condominio", back_populates="apartamentos"
+2026-07-15T12:14:12.6820819Z 28 |     )
+2026-07-15T12:14:12.6821154Z 29 |     moradores: Mapped[list["Morador"]] = relationship(
+2026-07-15T12:14:12.6821563Z    |                             ^^^^^^^
+2026-07-15T12:14:12.6821925Z 30 |         "Morador", back_populates="apartamento"
+2026-07-15T12:14:12.6822254Z 31 |     )
+2026-07-15T12:14:12.6822477Z    |
+2026-07-15T12:14:12.6822608Z 
+2026-07-15T12:14:12.6822769Z F401 [*] `sqlalchemy.Float` imported but unused
+2026-07-15T12:14:12.6823171Z  --> app/models/condominio.py:3:34
+2026-07-15T12:14:12.6823465Z   |
+2026-07-15T12:14:12.6823722Z 1 | from datetime import datetime, timezone
+2026-07-15T12:14:12.6824102Z 2 |
+2026-07-15T12:14:12.6824375Z 3 | from sqlalchemy import DateTime, Float, String
+2026-07-15T12:14:12.6824723Z   |                                  ^^^^^
+2026-07-15T12:14:12.6825135Z 4 | from sqlalchemy.orm import Mapped, mapped_column, relationship
+2026-07-15T12:14:12.6825518Z   |
+2026-07-15T12:14:12.6825785Z help: Remove unused import: `sqlalchemy.Float`
+2026-07-15T12:14:12.6826023Z 
+2026-07-15T12:14:12.6826150Z F821 Undefined name `Apartamento`
+2026-07-15T12:14:12.6826479Z   --> app/models/condominio.py:28:32
+2026-07-15T12:14:12.6826773Z    |
+2026-07-15T12:14:12.6826985Z 26 |     )
+2026-07-15T12:14:12.6827204Z 27 |
+2026-07-15T12:14:12.6827511Z 28 |     apartamentos: Mapped[list["Apartamento"]] = relationship(
+2026-07-15T12:14:12.6827918Z    |                                ^^^^^^^^^^^
+2026-07-15T12:14:12.6828278Z 29 |         "Apartamento", back_populates="condominio"
+2026-07-15T12:14:12.6828609Z 30 |     )
+2026-07-15T12:14:12.6828826Z    |
+2026-07-15T12:14:12.6828953Z 
+2026-07-15T12:14:12.6829078Z F821 Undefined name `Apartamento`
+2026-07-15T12:14:12.6829652Z   --> app/models/morador.py:28:26
+2026-07-15T12:14:12.6829963Z    |
+2026-07-15T12:14:12.6830182Z 26 |     )
+2026-07-15T12:14:12.6830402Z 27 |
+2026-07-15T12:14:12.6830699Z 28 |     apartamento: Mapped["Apartamento"] = relationship(
+2026-07-15T12:14:12.6831076Z    |                          ^^^^^^^^^^^
+2026-07-15T12:14:12.6831421Z 29 |         "Apartamento", back_populates="moradores"
+2026-07-15T12:14:12.6831762Z 30 |     )
+2026-07-15T12:14:12.6831982Z    |
+2026-07-15T12:14:12.6832109Z 
+2026-07-15T12:14:12.6832263Z F401 [*] `sqlalchemy.Integer` imported but unused
+2026-07-15T12:14:12.6832624Z  --> app/models/ocorrencia.py:3:46
+2026-07-15T12:14:12.6832915Z   |
+2026-07-15T12:14:12.6833434Z 1 | from datetime import datetime, timezone
+2026-07-15T12:14:12.6833771Z 2 |
+2026-07-15T12:14:12.6834110Z 3 | from sqlalchemy import DateTime, ForeignKey, Integer, String, Text
+2026-07-15T12:14:12.6834543Z   |                                              ^^^^^^^
+2026-07-15T12:14:12.6834959Z 4 | from sqlalchemy.orm import Mapped, mapped_column, relationship
+2026-07-15T12:14:12.6835342Z   |
+2026-07-15T12:14:12.6835615Z help: Remove unused import: `sqlalchemy.Integer`
+2026-07-15T12:14:12.6835853Z 
+2026-07-15T12:14:12.6835987Z F821 Undefined name `Apartamento`
+2026-07-15T12:14:12.6836300Z   --> app/models/ocorrencia.py:38:33
+2026-07-15T12:14:12.6836593Z    |
+2026-07-15T12:14:12.6836813Z 36 |     )
+2026-07-15T12:14:12.6837184Z 37 |
+2026-07-15T12:14:12.6837493Z 38 |     apartamento_origem: Mapped["Apartamento"] = relationship(
+2026-07-15T12:14:12.6837890Z    |                                 ^^^^^^^^^^^
+2026-07-15T12:14:12.6838232Z 39 |         "Apartamento", backref="ocorrencias"
+2026-07-15T12:14:12.6838544Z 40 |     )
+2026-07-15T12:14:12.6838765Z    |
+2026-07-15T12:14:12.6838886Z 
+2026-07-15T12:14:12.6839013Z F821 Undefined name `Apartamento`
+2026-07-15T12:14:12.6839328Z   --> app/models/rivalidade.py:43:28
+2026-07-15T12:14:12.6839988Z    |
+2026-07-15T12:14:12.6840207Z 41 |     )
+2026-07-15T12:14:12.6840422Z 42 |
+2026-07-15T12:14:12.6840717Z 43 |     apartamento_a: Mapped["Apartamento"] = relationship(
+2026-07-15T12:14:12.6841089Z    |                            ^^^^^^^^^^^
+2026-07-15T12:14:12.6841533Z 44 |         "Apartamento", foreign_keys=[apartamento_a_id], backref="rivalidades_como_a"
+2026-07-15T12:14:12.6841972Z 45 |     )
+2026-07-15T12:14:12.6842194Z    |
+2026-07-15T12:14:12.6842314Z 
+2026-07-15T12:14:12.6842464Z F821 Undefined name `Apartamento`
+2026-07-15T12:14:12.6842772Z   --> app/models/rivalidade.py:46:28
+2026-07-15T12:14:12.6843061Z    |
+2026-07-15T12:14:12.6843423Z 44 |         "Apartamento", foreign_keys=[apartamento_a_id], backref="rivalidades_como_a"
+2026-07-15T12:14:12.6843859Z 45 |     )
+2026-07-15T12:14:12.6844162Z 46 |     apartamento_b: Mapped["Apartamento"] = relationship(
+2026-07-15T12:14:12.6844534Z    |                            ^^^^^^^^^^^
+2026-07-15T12:14:12.6844975Z 47 |         "Apartamento", foreign_keys=[apartamento_b_id], backref="rivalidades_como_b"
+2026-07-15T12:14:12.6845407Z 48 |     )
+2026-07-15T12:14:12.6845630Z    |
+2026-07-15T12:14:12.6845754Z 
+2026-07-15T12:14:12.6845877Z F401 [*] `json` imported but unused
+2026-07-15T12:14:12.6846191Z  --> app/services/ws_manager.py:4:8
+2026-07-15T12:14:12.6846477Z   |
+2026-07-15T12:14:12.6846696Z 3 | import asyncio
+2026-07-15T12:14:12.6846944Z 4 | import json
+2026-07-15T12:14:12.6847179Z   |        ^^^^
+2026-07-15T12:14:12.6847415Z 5 | import logging
+2026-07-15T12:14:12.6847668Z 6 | import time
+2026-07-15T12:14:12.6847896Z   |
+2026-07-15T12:14:12.6848140Z help: Remove unused import: `json`
+2026-07-15T12:14:12.6848337Z 
+2026-07-15T12:14:12.6848486Z F401 [*] `datetime.datetime` imported but unused
+2026-07-15T12:14:12.6848842Z   --> app/services/ws_manager.py:8:22
+2026-07-15T12:14:12.6849138Z    |
+2026-07-15T12:14:12.6849619Z  6 | import time
+2026-07-15T12:14:12.6849932Z  7 | from dataclasses import dataclass, field
+2026-07-15T12:14:12.6850293Z  8 | from datetime import datetime, timezone
+2026-07-15T12:14:12.6850615Z    |                      ^^^^^^^^
+2026-07-15T12:14:12.6850886Z  9 |
+2026-07-15T12:14:12.6851128Z 10 | from fastapi import WebSocket
+2026-07-15T12:14:12.6851402Z    |
+2026-07-15T12:14:12.6851637Z help: Remove unused import
+2026-07-15T12:14:12.6851814Z 
+2026-07-15T12:14:12.6851961Z F401 [*] `datetime.timezone` imported but unused
+2026-07-15T12:14:12.6852320Z   --> app/services/ws_manager.py:8:32
+2026-07-15T12:14:12.6852610Z    |
+2026-07-15T12:14:12.6852838Z  6 | import time
+2026-07-15T12:14:12.6853119Z  7 | from dataclasses import dataclass, field
+2026-07-15T12:14:12.6853472Z  8 | from datetime import datetime, timezone
+2026-07-15T12:14:12.6853796Z    |                                ^^^^^^^^
+2026-07-15T12:14:12.6854077Z  9 |
+2026-07-15T12:14:12.6854478Z 10 | from fastapi import WebSocket
+2026-07-15T12:14:12.6854764Z    |
+2026-07-15T12:14:12.6854998Z help: Remove unused import
+2026-07-15T12:14:12.6855176Z 
+2026-07-15T12:14:12.6855281Z Found 12 errors.
+2026-07-15T12:14:12.6855547Z [*] 5 fixable with the `--fix` option.
+2026-07-15T12:14:12.6866613Z ##[error]Process completed with exit code 1.
+2026-07-15T12:14:12.7017910Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-15T12:14:12.7019731Z Post job cleanup.
+2026-07-15T12:14:12.7857446Z [command]/usr/bin/git version
+2026-07-15T12:14:12.7902802Z git version 2.54.0
+2026-07-15T12:14:12.7948571Z Temporarily overriding HOME='/home/runner/work/_temp/c03ec5df-d52f-4fcc-a3d8-849887126bc0' before making global git config changes
+2026-07-15T12:14:12.7950317Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-15T12:14:12.7957612Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/condocombat/condocombat
+2026-07-15T12:14:12.7998868Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-15T12:14:12.8036827Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-15T12:14:12.8297075Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-15T12:14:12.8327007Z http.https://github.com/.extraheader
+2026-07-15T12:14:12.8342943Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-07-15T12:14:12.8393249Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-15T12:14:12.8697378Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-15T12:14:12.8733507Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-15T12:14:12.9158273Z Cleaning up orphan processes
+2026-07-15T12:14:12.9457926Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

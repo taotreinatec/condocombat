@@ -1,6 +1,7 @@
+from __future__ import annotations
 from datetime import datetime, timezone
 
-from sqlalchemy import DateTime, Float, String
+from sqlalchemy import DateTime, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.database import Base
@@ -25,6 +26,6 @@ class Condominio(Base):
         onupdate=lambda: datetime.now(timezone.utc),
     )
 
-    apartamentos: Mapped[list["Apartamento"]] = relationship(
+    apartamentos: Mapped[list["Apartamento"]] = relationship(  # noqa: F821
         "Apartamento", back_populates="condominio"
     )

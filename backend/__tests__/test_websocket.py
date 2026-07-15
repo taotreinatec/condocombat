@@ -10,7 +10,7 @@ from jose import jwt
 from app.config import settings
 from app.main import app
 from app.schemas.ws_message import EventType, WSMessage
-from app.services.ws_manager import manager, WSConnectionManager
+from app.services.ws_manager import manager
 
 
 @pytest.fixture
@@ -88,7 +88,7 @@ async def test_manager_tracks_connections(client: TestClient):
     """Manager deve rastrear número de conexões ativas."""
     assert manager.active_connections == 0
 
-    with client.websocket_connect("/ws/ocorrencias") as ws:
+    with client.websocket_connect("/ws/ocorrencias") as _ws:
         assert manager.active_connections == 1
 
     assert manager.active_connections == 0
@@ -96,8 +96,8 @@ async def test_manager_tracks_connections(client: TestClient):
 
 async def test_manager_tracks_multiple_connections(client: TestClient):
     """Manager deve rastrear múltiplas conexões."""
-    with client.websocket_connect("/ws/ocorrencias") as ws1:
-        with client.websocket_connect("/ws/ocorrencias") as ws2:
+    with client.websocket_connect("/ws/ocorrencias") as _ws1:
+        with client.websocket_connect("/ws/ocorrencias") as _ws2:
             assert manager.active_connections == 2
 
     assert manager.active_connections == 0
@@ -128,7 +128,7 @@ async def test_broadcast_reaches_all_connected(client: TestClient):
 
 async def test_broadcast_after_disconnect(client: TestClient):
     """Broadcast não deve falhar quando cliente desconecta."""
-    with client.websocket_connect("/ws/ocorrencias") as ws1:
+    with client.websocket_connect("/ws/ocorrencias") as _ws1:
         pass  # ws1 closes here
 
     with client.websocket_connect("/ws/ocorrencias") as ws2:
